@@ -1,4 +1,4 @@
-# Vinylite — Music Catalog Insights Platform
+# Music Catalog Insights Platform
 
 A full-stack web app that lets a user search the public iTunes music catalog,
 save albums to a personal library, explore analytics on that library, and get
