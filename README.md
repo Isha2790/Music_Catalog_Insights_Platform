@@ -217,4 +217,4 @@ Runs on `http://localhost:3000`.
 
 - **Backend**: Java 17, Spring Boot 3.3, Spring Security (JWT via `jjwt`), Spring Data JPA, PostgreSQL / H2, Caffeine cache
 - **Frontend**: Next.js 14 (App Router), Tailwind CSS, Framer Motion, Recharts, Axios, lucide-react
-- **Third-party data**: [iTunes Search API](https://itunes.apple.com/search) — free, public, no key required
+- **Third-party data**: Base Endpoint(iTunes Search): https://itunes.apple.com/search — free, public, no key required
