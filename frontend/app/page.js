@@ -56,7 +56,7 @@ export default function LandingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <span className="label-eyebrow">Final year project · full-stack + AI</span>
+            <span className="label-eyebrow">Music Catalog Insights Platform · full-stack + AI</span>
             <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.1] tracking-tight md:text-6xl">
               Your record collection,
               <br />
