@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-void text-ink font-body antialiased;
+    background-image: radial-gradient(circle at 15% 0%, rgba(124,92,255,0.16), transparent 45%),
+                       radial-gradient(circle at 90% 10%, rgba(255,184,77,0.10), transparent 40%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: #7C5CFF;
+    color: #0B0B12;
+  }
+
+  /* Visible keyboard focus, everywhere */
+  :focus-visible {
+    outline: 2px solid #7C5CFF;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0B12;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2A2836;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3750;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-raised/60 border border-line rounded-2xl backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-violet px-5 py-2.5
+           text-sm font-semibold text-white shadow-[0_0_0_1px_rgba(124,92,255,0.4),0_8px_24px_-8px_rgba(124,92,255,0.6)]
+           transition-all duration-200 hover:bg-violet-soft hover:shadow-[0_0_0_1px_rgba(124,92,255,0.6),0_12px_32px_-8px_rgba(124,92,255,0.8)]
+           active:scale-[0.97] disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line px-5 py-2.5
+           text-sm font-semibold text-ink-muted transition-all duration-200
+           hover:border-violet/50 hover:text-ink hover:bg-violet/5 active:scale-[0.97];
+  }
+
+  .input-field {
+    @apply w-full rounded-xl bg-void border border-line px-4 py-2.5 text-sm text-ink placeholder:text-ink-faint
+           outline-none transition-colors focus:border-violet/60;
+  }
+
+  .label-eyebrow {
+    @apply text-xs font-mono uppercase tracking-[0.2em] text-violet-soft;
+  }
+}
+
+/* Waveform / equalizer bars used as the app's signature motif */
+.eq-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+}
+.eq-bars span {
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(to top, #7C5CFF, #FFB84D);
+  transform-origin: bottom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
