@@ -19,7 +19,7 @@ export default function AuthLayout({ title, subtitle, children, footer }) {
         <div className="flex flex-col items-center text-center">
           <VinylRecord size={56} />
           <Link href="/" className="mt-4 flex items-center gap-2 font-display text-lg font-semibold">
-            Vinylite <EqBars />
+            Music <EqBars />
           </Link>
           <h1 className="mt-6 font-display text-2xl font-semibold">{title}</h1>
           <p className="mt-1.5 text-sm text-ink-muted">{subtitle}</p>

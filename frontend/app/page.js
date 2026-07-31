@@ -40,7 +40,7 @@ export default function LandingPage() {
       <div className="relative mx-auto flex max-w-6xl flex-col px-6 pt-8">
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <span className="font-display text-lg font-semibold">Vinylite</span>
+            <span className="font-display text-lg font-semibold">Music</span>
             <EqBars className="opacity-70" />
           </div>
           <div className="flex items-center gap-3">

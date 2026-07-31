@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/search" className="flex items-center gap-2.5 group">
           <Disc3 className="h-6 w-6 text-violet-soft transition-transform duration-500 group-hover:rotate-180" strokeWidth={1.75} />
-          <span className="font-display text-lg font-semibold tracking-tight">Vinylite</span>
+          <span className="font-display text-lg font-semibold tracking-tight">Music Catalog Insights Platform</span>
           <EqBars className="ml-1 opacity-70" />
         </Link>
 

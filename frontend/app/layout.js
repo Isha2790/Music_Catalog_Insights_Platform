@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'Vinylite — Music Catalog Insights',
+  title: 'Music Catalog Insights Platform',
   description: 'Search the public music catalog, build your personal library, and get AI-driven insights into your taste.',
 };
 
