@@ -23,8 +23,18 @@ public class ItunesClient {
     private final RestClient restClient;
 
     public ItunesClient(@Value("${app.itunes.base-url}") String baseUrl) {
+        var jsonConverter = new org.springframework.http.converter.json.MappingJackson2HttpMessageConverter();
+        jsonConverter.setSupportedMediaTypes(java.util.List.of(
+                org.springframework.http.MediaType.APPLICATION_JSON,
+                new org.springframework.http.MediaType("text", "javascript", java.nio.charset.StandardCharsets.UTF_8)
+        ));
+
         this.restClient = RestClient.builder()
                 .baseUrl(baseUrl)
+                .messageConverters(converters -> {
+                    converters.removeIf(c -> c instanceof org.springframework.http.converter.json.MappingJackson2HttpMessageConverter);
+                    converters.add(0, jsonConverter);
+                })
                 .build();
     }
 
