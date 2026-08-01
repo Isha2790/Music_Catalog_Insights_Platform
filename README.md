@@ -202,28 +202,31 @@ Runs on `http://localhost:3000`.
  
 ## 8. Deployment
  
-**Backend (Render / Railway):**
-1. Push `backend/` as its own service (or point the platform's root dir to `backend`).
-2. Set `SPRING_PROFILES_ACTIVE=prod`.
-3. Provision a PostgreSQL instance and set `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
+**Backend:**
+1. I deployed the backend of the website on Render.
+2. Push `backend/` as its own service (or point the platform's root dir to `backend`).
+3. Set `SPRING_PROFILES_ACTIVE=prod`.
+4. Provision a PostgreSQL instance and set `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
    - Note: Render's Postgres "External/Internal Connection String" is given
      in `postgres://user:pass@host:port/db` form — Spring Boot's JDBC driver
      needs `jdbc:postgresql://host:port/db`, so double-check the scheme
      before pasting it in.
-4. Set `JWT_SECRET` to a long random string.
-5. Set `CORS_ALLOWED_ORIGINS` to your deployed frontend's URL (exact scheme
+5. Set `JWT_SECRET` to a long random string.
+6. Set `CORS_ALLOWED_ORIGINS` to your deployed frontend's URL (exact scheme
    and host, no trailing slash).
-6. See `backend/src/main/resources/application-example.properties` for the full list.
-**Frontend (Vercel / Netlify):**
-1. Point the platform at `frontend/`.
-2. Set `NEXT_PUBLIC_API_BASE_URL` to your deployed backend's `/api` URL.
-3. Deploy — build command `npm run build`, output is the default Next.js build.
-   Remember `NEXT_PUBLIC_*` vars are baked in at build time, so a redeploy is
+7. See `backend/src/main/resources/application-example.properties` for the full list.
+
+**Frontend:**
+1. I deployed the frontend of the website on Vercel.
+2. Point the platform at `frontend/`.
+3. Set `NEXT_PUBLIC_API_BASE_URL` to your deployed backend's `/api` URL.
+4. Deploy — build command `npm run build`, output is the default Next.js build.
+   Remember, `NEXT_PUBLIC_*` vars are baked in at build time, so a redeploy is
    required any time this value changes.
 **Troubleshooting note:** because this app spans two independently-deployed
 services, a `502` from `/api/search` in production almost always traces back
 to one of: the backend not being live yet (Render cold start), a malformed
-`DATABASE_URL` preventing the backend from booting, or `NEXT_PUBLIC_API_BASE_URL`
+`DATABASE_URL` is preventing the backend from booting, or `NEXT_PUBLIC_API_BASE_URL`
 on Vercel not (yet) pointing at the live backend. Checking the backend's own
 `/api/health` endpoint directly is the fastest way to isolate which side is at fault.
  
