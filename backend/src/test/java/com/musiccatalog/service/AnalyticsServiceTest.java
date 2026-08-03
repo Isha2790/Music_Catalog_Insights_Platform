@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,7 +36,7 @@ class AnalyticsServiceTest {
                 item("Discovery", "Daft Punk", "Electronic", "2001-03-12", 14, 5),
                 item("1989", "Taylor Swift", "Pop", "2014-10-27", 13, null)
         );
-        when(repository.findByUserIdOrderByCreatedAtDesc(USER_ID)).thenReturn(items);
+        lenient().when(repository.findByUserIdOrderByCreatedAtDesc(USER_ID)).thenReturn(items);
     }
 
     @Test
